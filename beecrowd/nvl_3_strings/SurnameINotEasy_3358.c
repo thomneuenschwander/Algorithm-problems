@@ -32,18 +32,26 @@ bool isDifficult(char* str, int tam){
 }
 
 int main(){
+
     int N;
     scanf("%d", &N);
-    while(N--){
+
+    while(N--)
+    {
         char* str = malloc(31*sizeof(char));
         scanf("%s", str);
+
         int tam = strlen(str);
         str = realloc(str, (tam+1)*sizeof(char));
-        if(isDifficult(str, tam)){
+
+        if(isDifficult(str, tam))
+        {
             printf("%s nao eh facil\n", str);
-        }else{
+        }else
+        {
             printf("%s eh facil\n", str);
         }
+        
         free(str);
     }
 
