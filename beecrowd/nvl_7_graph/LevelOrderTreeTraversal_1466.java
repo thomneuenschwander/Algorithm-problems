@@ -1,5 +1,3 @@
-package beecrowd.nvl_7_graph;
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
