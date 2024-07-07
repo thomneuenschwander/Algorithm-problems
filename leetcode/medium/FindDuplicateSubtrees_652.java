@@ -3,15 +3,17 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import leetcode.TreeNode;
+
 public class FindDuplicateSubtrees_652 {
 
-    static List<Node> findDuplicateSubtrees(Node root) {
-        List<Node> duplicates = new LinkedList<>();
+    static List<TreeNode> findDuplicateSubtrees(TreeNode root) {
+        List<TreeNode> duplicates = new LinkedList<>();
         traversal(root, new HashMap<>(), duplicates);
         return duplicates;
     }
 
-    static String traversal(Node current, Map<String, Integer> map, List<Node> duplicates) {
+    static String traversal(TreeNode current, Map<String, Integer> map, List<TreeNode> duplicates) {
         if(current == null)
             return ".";
         
@@ -29,58 +31,41 @@ public class FindDuplicateSubtrees_652 {
     }
 
     public static void main(String[] args) {
-        Node root = buildExemple03Tree();
+        TreeNode root = buildExemple03Tree();
 
-        List<Node> duplicates = findDuplicateSubtrees(root);
+        List<TreeNode> duplicates = findDuplicateSubtrees(root);
 
         duplicates.forEach(node -> {
             System.out.println(node.val);
         });
     }
 
-    static Node buildExemple01Tree() {
-        Node root = new Node(1);
-        root.left = new Node(2);
-        root.left.left = new Node(4);
-        root.right = new Node(3);
-        root.right.left = new Node(2);
-        root.right.left.left = new Node(4);
-        root.right.right = new Node(4);
+    static TreeNode buildExemple01Tree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(4);
+        root.right = new TreeNode(3);
+        root.right.left = new TreeNode(2);
+        root.right.left.left = new TreeNode(4);
+        root.right.right = new TreeNode(4);
         return root;
     }
 
-    static Node buildExemple02Tree() {
-        Node root = new Node(2);
-        root.left = new Node(1);
-        root.right = new Node(1);
+    static TreeNode buildExemple02Tree() {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(1);
         return root;
     }
 
-    static Node buildExemple03Tree() {
-        Node root = new Node(2);
-        root.left = new Node(2);
-        root.left.left = new Node(3);
-        root.right = new Node(1);
-        root.right.left = new Node(3);
+    static TreeNode buildExemple03Tree() {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.right = new TreeNode(1);
+        root.right.left = new TreeNode(3);
         return root;
     }
 }
 
-class Node {
-    int val;
-    Node left;
-    Node right;
-
-    Node() {
-    }
-    Node(int val) {
-        this.val = val;
-    }
-
-    Node(int val, Node left, Node right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
  
